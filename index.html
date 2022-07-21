@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="zh" xml:lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>routejs</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="operation">
+    <div>
+      <input type="radio" name="framework" id="Vanilla" value="Vanilla" checked />
+      <label for="Vanilla">Vanilla</label>
+
+      <input type="radio" name="framework" id="React" value="React" />
+      <label for="React">React</label>
+
+      <input type="radio" name="framework" id="Vue" value="Vue" />
+      <label for="Vue">Vue</label>
+    </div>
+    <div>
+      <input type="radio" name="mode" id="Hash" value="Hash" checked />
+      <label for="Hash">Hash</label>
+
+      <input type="radio" name="mode" id="History" value="History" />
+      <label for="History">History</label>
+    </div>
+    <div>
+      <a href="/">重置地址</a>
+    </div>
+  </div>
+
+  <div class="preview vanilla hash">
+    <h1>Hash Router(Vanilla)</h1>
+    <ul>
+      <li><a href="#/home">home</a></li>
+      <li><a href="#/about">about</a></li>
+    </ul>
+    <div class="container">route empty</div>
+  </div>
+
+  <div class="preview vanilla history">
+    <h1>History Router(Vanilla)</h1>
+    <ul>
+      <li><a href="/home">home</a></li>
+      <li><a href="/about">about</a></li>
+    </ul>
+    <div class="container">route empty</div>
+  </div>
+
+  <div class="preview react hash">
+    <h1>Hash Router(React)</h1>
+    <div class="container">hash route empty</div>
+  </div>
+
+  <div class="preview react history">
+    <h1>History Router(React)</h1>
+    <div class="container">history route empty</div>
+  </div>
+
+  <div class="preview vue hash">
+    <h1>Hash Router(Vue)</h1>
+    <ul>
+      <li>
+        <router-link to="/home">home</router-link>
+      </li>
+      <li>
+        <router-link to="/about">about</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>
+  </div>
+
+  <div class="preview vue history">
+    <h1>History Router(Vue)</h1>
+    <ul>
+      <li>
+        <router-link to="/home">home</router-link>
+      </li>
+      <li>
+        <router-link to="/about">about</router-link>
+      </li>
+    </ul>
+    <router-view></router-view>
+  </div>
+
+  <!-- cdn -->
+  <script crossorigin src="https://cdn.bootcdn.net/ajax/libs/vue/2.7.6/vue.min.js"></script>
+  <script crossorigin src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.0.0-beta.3/babel.js"></script>
+  <script crossorigin
+    src="https://cdn.bootcdn.net/ajax/libs/react/18.3.0-next-02206099a-20220714/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+  <script src="./index.js"></script>
+
+  <script src="./vanilla/hash.js"></script>
+  <script src="./vanilla/history.js"></script>
+
+  <script type="text/babel" src="./react/history.js"></script>
+  <script type="text/babel" src="./react/hash.js"></script>
+
+  <script type="text/babel" src="./vue/history.js"></script>
+  <script type="text/babel" src="./vue/hash.js"></script>
+
+</body>
+
+</html>
