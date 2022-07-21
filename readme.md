@@ -11,9 +11,9 @@
 
 ### 如何监听
 
-hash 通过 `window.addEventListener('hashchange')` 这个事件，就可以监听到 `hash` 值的变化。
+hash 通过 `window.addEventListener('hashchange')` 这个事件，就可以监听到 `hash` 值的变化，驱动界面变化。
 
-history 通过 `history.pushState` 让 url 改变，但是不重新加载页面，完全由用户决定如何处理这次 `url` 改变。
+history 通过 `history.pushState` 让 url 改变，但是不重新加载页面，记录浏览器的历史，驱动界面发送变化。
 
 ### 如何改变
 - Router
