@@ -4,3 +4,6 @@
 .visible {
   display: block;
 }
+.wrapper {
+  padding: 30px;
+}

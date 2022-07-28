@@ -1,0 +1,11 @@
+{
+  "name": "How2Route",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hk4114/How2Route.git",
+  "author": "huakang <741180788@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

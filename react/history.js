@@ -34,7 +34,7 @@ class HistoryRouter extends React.Component {
     currentPath: extractUrlPath(window.location.href)
   };
 
-  onPopState = e => {
+  onPopState = () => {
     const currentPath = extractUrlPath(window.location.href);
     console.log("onPopState:", currentPath);
     this.setState({ currentPath });
