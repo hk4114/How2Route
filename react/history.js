@@ -1,46 +1,46 @@
+// 匹配 history 路由
+const extractUrlPath = url => /https?:\/\/[^/]+([^?#]*)/.exec(url)[1];
 
+// 维护当前路径 currentPath
 const HistoryRouteContext = React.createContext({
   currentPath: "/",
   onPopState: () => { }
 });
 
-const HistoryRoute = ({ path, render }) => (
-  <HistoryRouteContext.Consumer>
-    {({ currentPath }) => currentPath === path && render()}
-  </HistoryRouteContext.Consumer>
-)
-
-const HistoryLink = ({ to, ...props }) => (
-  <HistoryRouteContext.Consumer>
-    {({ onPopState }) => (
-      <a
-        href=""
-        {...props}
-        onClick={e => {
-          // 阻止默认行为
-          e.preventDefault();
-          // 更新 URL
-          window.history.pushState(null, "", to);
-          // 更新 UI
-          onPopState();
-        }}
-      />
-    )}
-  </HistoryRouteContext.Consumer>
-);
+const HistoryLink = ({ to, ...props }) => {
+  // 拦截 a 标签点击事件默认行为， 点击时使用 pushState 修改 URL并更新手动 UI
+  // 从而实现点击链接更新 URL 和 UI 的效果。
+  return (
+    <HistoryRouteContext.Consumer>
+      {({ onPopState }) => (
+        <a href="" {...props}
+          onClick={e => {
+            // 阻止默认行为
+            e.preventDefault();
+            // 更新 URL
+            window.history.pushState(null, "", to);
+            // 更新 UI
+            onPopState();
+          }}
+        />
+      )}
+    </HistoryRouteContext.Consumer>
+  )
+}
 
 class HistoryRouter extends React.Component {
   state = {
     currentPath: extractUrlPath(window.location.href)
   };
 
+  // 路由变化时，根据路由渲染对应 UI
   onPopState = () => {
     const currentPath = extractUrlPath(window.location.href);
-    console.log("onPopState:", currentPath);
     this.setState({ currentPath });
   };
 
   componentDidMount() {
+    // 监听路由变化
     window.addEventListener("popstate", this.onPopState);
   }
 

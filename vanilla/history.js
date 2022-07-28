@@ -1,7 +1,7 @@
 // 路由视图
 let vanillaHisoryRouterView = null
 
-function onLoad () {
+function onLoad() {
   vanillaHisoryRouterView = document.querySelector('.vanilla.history .container')
   onPopState()
 
